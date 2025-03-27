@@ -25,6 +25,7 @@ import requests, os, time, json, re, random
 def forbidden(error):
     return render_template('403.html'), 403
 
+@app.route('/')
 @app.route('/home')
 def home_page():
     return render_template('page1.html')
