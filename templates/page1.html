@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, height=1136, initial-scale=1.0">
+    <title>MULAH - Loyalty Points</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 640px;
+            margin: auto;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff6600;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .welcome {
+            font-family: serif;
+            font-size: 32px;
+            font-weight: bold;
+            color: #808080;
+            margin-top: 30px;
+        }
+        .subtext {
+            color: #ff6600;
+            font-size: 14px;
+            margin-top: 10px;
+            margin-right: 59px;
+        }
+        .input-group {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        select, input {
+            font-size: 18px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        select {
+            width: 80px;
+        }
+        input {
+            width: 60%;
+            margin-left: 10px;
+        }
+        .btn {
+            margin-top: 20px;
+            background-color: #ff6600;
+            color: white;
+            font-size: 18px;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #e65c00;
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">MULAH</div>
+        <div class="welcome" style="margin-right: 219px; margin-bottom: -20px;">Hello,</div>
+        <div class="welcome" style="margin-right: 159px;">Welcome !</div>
+        <div class="subtext">Check Your Loyalty Points & Rewards</div>
+        <div class="input-group">
+            <select id="countryCode">
+                <option value="+60">+60</option>
+                <option value="+62">+62</option>
+            </select>
+            <input type="text" id="phoneNumber" placeholder="Enter your mobile number">
+        </div>
+        <button class="btn" onclick="checkLoyaltyPoints()">Check Loyalty Points</button>
+        <div class="footer">Powered by <a href="#">MulahRewards.com</a></div>
+    </div>
+
+    <script>
+        function checkLoyaltyPoints() {
+            const countryCode = document.getElementById("countryCode").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+
+            // Combine country code with phone number
+            const fullPhoneNumber = countryCode + phoneNumber;
+
+            // Store the full phone number in local storage
+            localStorage.setItem('phoneNumber', fullPhoneNumber);
+
+            // Validate the input
+            if (fullPhoneNumber === "+60173527250") { // Adjust the condition as needed
+                // Redirect to Page 2
+                window.location.href = "/register"; // Adjust the URL as necessary
+            } else {
+                alert("Invalid phone number.");
+            }
+        }
+    </script>
+</body>
+</html>
